@@ -1,0 +1,15 @@
+<div ng-controler="ErrorManualOrderController">
+	<div style="margin: 50px;">
+		<span>SKU_NO: </span>
+		<input type="text" ng-model="queryRequire"/>
+		<button class="btn btn-primary" ng-click="searchList()">Search</button>
+	</div>
+	<div style="margin: 20px;" ng-show="gridshow" ui-grid="gridOptions" class="grid" ui-grid-pagination ui-grid-cellNav ui-grid-resize-columns ui-grid-selection ui-grid-auto-resize ui-grid-edit></div>
+	<div style="margin: 50px;">
+		<button class="btn btn-primary" ng-click="ecportExcel()">Export Report</button>
+		<button class="btn btn-primary">Re-Validation</button>
+		<button class="btn btn-primary">Reject</button>
+		<button class="btn btn-primary" ng-click="adoptError()">Adopt</button>
+		<button class="btn btn-primary" ng-click="exportProductTest()">Send to Belle</button>
+	</div>
+</div>

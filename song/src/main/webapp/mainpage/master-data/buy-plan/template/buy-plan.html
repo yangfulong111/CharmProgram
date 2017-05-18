@@ -1,0 +1,67 @@
+<div ng-controller="buyPlanController">
+	<div class="col-md-12 center">
+		<label for="file" class="btn btn-large" type="button" ng-click="hideresult()"
+			style="margin-bottom: 10px;">Select File</label> <input type="file"
+			id="file" style="display: none" file-upload multiple /><br />
+		<div ng-show="files.length>0">
+			<table id="fileTable"
+				class="table table-hover table-bodered table-scriped">
+				<thead>
+					<tr style="background-color: #AEADAD;">
+						<th>Number</th>
+						<th>File Name</th>
+						<th>File Size</th>
+						<th>Operating</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="file in files">
+						<td>{{$index+1}}</td>
+						<td>{{file.name}}</td>
+						<td>{{file.size/1024/1024|number:2}} MB</td>
+						<td><button class="btn btn-danger btn-xs"
+								ng-click="removeFile(file)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<button ng-click="uploadBuyPlan(files)">upload buy plan</button>
+		</div>
+		<br />
+		<br />
+		<br />
+
+		<div ng-hide="result">
+			<div ng-hide="visibleMsg">
+				<p>
+					<span style="color: red;">{{mes}}</span>
+				</p>
+			</div>
+
+			<div ng-hide="visible">
+				<table class="table table-hover table-bordered table-striped">
+					<thead>
+						<tr>
+							<th colspan="4" style="color: red;">these data must
+								be not null,please upload again!</th>
+						</tr>
+					</thead>
+					<thead>
+						<tr>
+							<th>row</th>
+							<th>cell</th>
+							<th>titleName</th>
+							<th>error</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="map in data.resultData">
+							<td>{{map.row}}</td>
+							<td>{{map.cell}}</td>
+							<td>{{map.title}}</td>
+							<td>{{map.reason}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

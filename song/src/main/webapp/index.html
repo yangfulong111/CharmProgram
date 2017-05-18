@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8" />
+<title>My App</title>
+	<!-- css start-->
+	<link rel="stylesheet" href="common/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="common/css/ui-grid.css"/>
+	<!-- css end-->
+	
+	<!-- common js start -->
+	<script src="common/js/lib/angular/angular.min.js"></script>
+	<script src="common/js/lib/angular/angular-route.js"></script>
+	<script src="common/js/lib/angular/angular-resource.js"></script>
+	<script src="common/js/lib/jquery/jquery-3.1.1.min.js"></script>
+	<script src="common/js/lib/bootstrap/bootstrap.min.js"></script>
+	<script src="common/js/app.js"></script>
+	<script src="common/js/lib/ui-grid/ui-grid.js"></script>
+	<!-- common js send -->
+	
+	<!-- home js/css  start-->
+	<script src="mainpage/home/js/controller/homeController.js"></script>
+	<script src="common/js/other/jquery.easydropdown.js" type="text/javascript"></script>
+	<script type="text/javascript" src="common/js/other/move-top.js"></script>
+	<script type="text/javascript" src="common/js/other/easing.js"></script>
+
+	
+	<link rel="stylesheet" href="common/css/other/style.css"  type="text/css" media="all" />
+	<link rel="stylesheet" href="common/css/other/flexslider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="common/css/other/popuo-box.css"  type="text/css" media="all"/>
+	<!-- home js/css  end-->	
+		
+	<!-- uploadFiles js -->
+	<script src="common/js/directive/upload-file.js"></script>
+
+	<!-- translate start -->
+	<script src="common/js/lib/angular/angular-translate.min.js"></script>
+	<script src="common/js/lib/angular/angular-translate-loader-static-files.min.js"></script>
+	<script src="common/js/lib/angular/angular-sanitize.min.js"></script>
+	<script src="common/js/controller/LanguageSwitchController.js"></script>
+	<!-- translate end -->
+
+	<style type="text/css">
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #fff;
+        }
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+    </style>
+	
+
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<h1><a href="index.html">song</a></h1>   
+			</div>
+			<div class="box">
+				<input type="submit" value="login" data-toggle="modal" data-target="#myModal">
+			</div>
+		<!-- translate -->
+			<!-- <div style="color: white; float: right;margin-right: 30px;">
+				<span ng-bind-html="'username' | translate"></span> | {{"changeMessage"|translate}}：
+				<select style="background-color: black;" ng-controller="LanguageSwitchingCtrl" ng-model="lang" ng-change="switching(lang)">
+					<option value="en">English</option>
+					<option value="cn">简体中文</option>
+			    </select>
+			</div> -->
+		</div>
+	</div>		
+	<div class="header-top">
+		<div class="container">
+			<div class="header-nav">
+				<span class="menu"> </span>
+					<ul>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'admins' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/user-management" ng-bind-html="'usermanagement'|translate"></a></li>
+						        <li><a href="#/role-management" ng-bind-html="'rolemanagement'|translate"></a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'ordercapture' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/error-manual-order" ng-bind-html="'errormanualorder'|translate"></a></li>
+						        <li><a href="#/manual-order-adjust" ng-bind-html="'manualorderadjust'|translate"></a></li>
+						        <li><a href="#/ae-cut-manual-order" ng-bind-html="'aecutmanualorder'|translate"></a></li>
+						        <li><a href="#/order-adjust-report" ng-bind-html="'orderadjustreport'|translate"></a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'ordervalidation' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/first-lifi-cops-validation" ng-bind-html="'firstlificopsvalidation'|translate"></a></li>
+						        <li><a href="#/second-lifi-cops-validation" ng-bind-html="'secondlificopsvalidation'|translate"></a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'ordercheck' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/first-lifi-order-adjust" ng-bind-html="'firstlifiorderadjust'|translate"></a></li>
+						        <li><a href="#/second-lifi-order-adjust" ng-bind-html="'secondlifiorderadjust'|translate"></a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'ordercreate' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/cops-create-order" ng-bind-html="'copscreateorder'|translate"></a></li>
+						    </ul>
+						</li>
+						<li><a href="#/order-off" class="scroll" ng-bind-html="'calloff' | translate"></a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'productchange' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/master-line-import" ng-bind-html="'masterlineimport'|translate"></a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-bind-html="'ordercancel' | translate"></a>
+							<ul class="dropdown-menu navbar-inverse">
+						        <li><a href="#/ae-cancel-order" ng-bind-html="'aecancelorder'|translate"></a></li>
+						        <li><a href="#/cops-cancel-order" ng-bind-html="'copscancelorder'|translate"></a></li>
+						    </ul>
+						</li>
+							<li class="dropdown"> <a tabindex="0" data-toggle="dropdown" data-submenu aria-expanded="true"ng-bind-html="'orderchange' | translate" > </a>
+				              	 
+				              	 <ul class="dropdown-menu navbar-inverse">
+					             	 <li class="dropdown-submenu navbar-inverse"><a tab-index="-1" ng-bind-html="'buyconformation' | translate"> </a>
+					             		 <ul class="dropdown-menu navbar-inverse">
+					             			<li><a a href="#/buy-confirmation/tera-data" tab-index="-1"ng-bind-html="'teradata' | translate"></a></li>
+											<li><a a href="#/buy-confirmation/sap-13570" tab-index="-1" ng-bind-html="'sap13570' | translate"></a></li>
+										 </ul> 
+					             	 </li>
+					             	 <li class="dropdown-submenu navbar-inverse"><a tab-index="-1" ng-bind-html="'doormapping' | translate"></a>
+					             		 <ul class="dropdown-menu navbar-inverse">
+					             			<li><a href="#/ae-door-mapping" tab-index="-1"ng-bind-html="'aedoormapping' | translate"></a></li>
+											<li><a href="#/cops-door-mapping" tab-index="-1" ng-bind-html="'copsdoormapping' | translate"></a></li>
+										 </ul> 
+					             	 </li>
+					             	 <li><a href="#/belle-change" ng-bind-html="'bellechange' | translate"></a></li>
+					             	 <li class="dropdown-submenu navbar-inverse"><a tab-index="-1" ng-bind-html="'nikechange' | translate"> </a>
+					             		 <ul class="dropdown-menu navbar-inverse">
+					             			<li><a a href="#/nike-change/sap-13570" tab-index="-1"ng-bind-html="'teradata' | translate"></a></li>
+											<li><a a href="#/nike-change/sap-13570" tab-index="-1" ng-bind-html="'sap13570' | translate"></a></li>
+										 </ul> 
+					             	 </li>
+									
+								</ul> 
+						</li> 
+						<li class="dropdown"><a  href="javascript:void(o)" class="dropdown-toggle" data-toggle="dropdown"ng-bind-html="'masterdata' | translate"> </a>
+				              	 <ul class="dropdown-menu navbar-inverse">
+					             	<li><a href="#/size-alert-set"  ng-bind-html="'sizealertset' | translate"></a></li>
+									<li><a href="#/size-master-import" ng-bind-html="'sizemasterimport' | translate"></a></li>
+									<li><a href="#/customer-list" ng-bind-html="'customerlist' | translate"></a></li>
+									<li><a href="#/door-main" ng-bind-html="'doormaster' | translate"></a></li>
+									<li><a href="#/product" ng-bind-html="'product' | translate"></a></li>
+									<li><a href="#/product-additional" ng-bind-html="'productadditional' | translate"></a></li>
+									<li><a href="#/qap-main" ng-bind-html="'qap' | translate"></a></li>
+									<li><a href="#/buy-plan" ng-bind-html="'buyplan' | translate"></a></li>
+									<li><a href="#/nike-buy" ng-bind-html="'nikebuy' | translate"></a></li>
+									<li><a href="#/alert-setting" ng-bind-html="'alertsetting' | translate"></a></li>
+									<li><a href="#/cops-parameter-setting" ng-bind-html="'copsparametersetting' | translate"></a></li>
+									
+								</ul> 
+						</li>
+						
+						
+					</ul>
+			</div>
+			
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<div class="login">
+							<form>
+								<h3>Log In</h3>
+								<h4>Registered users</h4>
+								<div class="form-group">
+								<input type="text" class="form-control" value="Email" onfocus="this.value = '';"onblur="if (this.value == '') {this.value = 'Email';}" />
+								</div>
+								<div class="form-group">
+								<input type="password" class="form-control" value="Password" onfocus="this.value = '';"onblur="if (this.value == '') {this.value = 'Password';}" />
+								</div>
+							    <div class="sub-btn">
+								<input type="submit"  value="Login" />
+							    </div>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+  	<div ng-view style="padding-bottom:100px"></div>
+  	
+	<!-- <div class="footer" style="background-color:EC7A00;">
+		<div class="container">
+			<div class="footer-nav">
+				<ul>
+					<li><a href="#home" class="scroll">QAP</a></li>
+					<li><a href="#/custemer-list-main" class="scroll">CUSTMER LIST</a></li>
+					<li><a href="#contact" class="scroll">BUY PLAN</a></li>
+				</ul>
+			</div>
+			<div class=""  style = "float:right; margin-top:60px;">
+				<p>&copy; 2017 Nike, Inc. All Rights Reserved</p>
+			</div>
+		</div>
+	</div>  -->
+	
+	<!-- role management -->
+	<script src="mainpage/admin/role-management/js/service/role-management-service.js"></script>
+	<script src="mainpage/admin/role-management/js/router/role-management-router.js"></script>
+	<script src="mainpage/admin/role-management/js/controller/role-management-controller.js"></script>
+	<!-- user management -->
+	<script src="mainpage/admin/user-management/js/service/user-management-service.js"></script>
+	<script src="mainpage/admin/user-management/js/router/user-management-router.js"></script>
+	<script src="mainpage/admin/user-management/js/controller/user-management-controller.js"></script>
+	<!-- ae cut manual order -->
+	<script src="mainpage/order-capture/ae-cut-manual-order/js/service/ae-cut-manual-order-service.js"></script>
+	<script src="mainpage/order-capture/ae-cut-manual-order/js/router/ae-cut-manual-order-router.js"></script>
+	<script src="mainpage/order-capture/ae-cut-manual-order/js/controller/ae-cut-manual-order-controller.js"></script>
+	<script src="mainpage/order-capture/ae-cut-manual-order/js/controller/ae-cut-manual-order-import-controller.js"></script>
+	<!-- error-manual-order -->
+	<script src="mainpage/order-capture/error-manual-order/js/service/error-manual-order-service.js"></script>
+	<script src="mainpage/order-capture/error-manual-order/js/router/error-manual-order-router.js"></script>
+	<script src="mainpage/order-capture/error-manual-order/js/controller/error-manual-order-controller.js"></script>
+	<!-- manual order adjust -->
+	<script src="mainpage/order-capture/manual-order-adjust/js/service/manual-order-adjust-service.js"></script>
+	<script src="mainpage/order-capture/manual-order-adjust/js/router/manual-order-adjust-router.js"></script>
+	<script src="mainpage/order-capture/manual-order-adjust/js/controller/manual-order-adjust-controller.js"></script>
+	<!-- first lifi order adjust -->
+	<script src="mainpage/order-check/first-lifi-order-adjust/js/service/first-lifi-order-adjust-service.js"></script>
+	<script src="mainpage/order-check/first-lifi-order-adjust/js/router/first-lifi-order-adjust-router.js"></script>
+	<script src="mainpage/order-check/first-lifi-order-adjust/js/controller/first-lifi-order-adjust-controller.js"></script>
+	<!-- second lifi order adjust -->
+	<script src="mainpage/order-check/second-lifi-order-adjust/js/service/second-lifi-order-adjust-service.js"></script>
+	<script src="mainpage/order-check/second-lifi-order-adjust/js/router/second-lifi-order-adjust-router.js"></script>
+	<script src="mainpage/order-check/second-lifi-order-adjust/js/controller/second-lifi-order-adjust-controller.js"></script>
+	<!-- cops create order -->
+	<script src="mainpage/order-create/cops-create-order/js/service/cops-create-order-service.js"></script>
+	<script src="mainpage/order-create/cops-create-order/js/router/cops-create-order-router.js"></script>
+	<script src="mainpage/order-create/cops-create-order/js/controller/cops-create-order-controller.js"></script>
+	<!-- order off -->
+	<script src="mainpage/order-off/js/service/order-off-service.js"></script>
+	<script src="mainpage/order-off/js/router/order-off-router.js"></script>
+	<script src="mainpage/order-off/js/controller/order-off-controller.js"></script>
+	<!-- first lifi cops validation -->
+	<script src="mainpage/order-validation/first-lifi-cops-validation/js/service/first-lifi-cops-validation-service.js"></script>
+	<script src="mainpage/order-validation/first-lifi-cops-validation/js/router/first-lifi-cops-validation-router.js"></script>
+	<script src="mainpage/order-validation/first-lifi-cops-validation/js/controller/first-lifi-cops-validation-controller.js"></script>
+	<script src="mainpage/order-validation/first-lifi-cops-validation/js/controller/shipto-error-controller.js"></script>
+	<script src="mainpage/order-validation/first-lifi-cops-validation/js/controller/sku-error-controller.js"></script>
+	<!-- second lifi cops validation -->
+	<script src="mainpage/order-validation/second-lifi-cops-validation/js/service/second-lifi-cops-validation-service.js"></script>
+	<script src="mainpage/order-validation/second-lifi-cops-validation/js/router/second-lifi-cops-validation-router.js"></script>
+	<script src="mainpage/order-validation/second-lifi-cops-validation/js/controller/second-lifi-cops-validation-controller.js"></script>
+	<!-- master line import -->
+	<script src="mainpage/product-change/master-line-import/js/service/master-line-import-service.js"></script>
+	<script src="mainpage/product-change/master-line-import/js/router/master-line-import-router.js"></script>
+	<script src="mainpage/product-change/master-line-import/js/controller/master-line-import-controller.js"></script>
+	<!-- ae cancel order -->
+	<script src="mainpage/order-cancel/ae-cancel-order/js/service/ae-cancel-order-service.js"></script>
+	<script src="mainpage/order-cancel/ae-cancel-order/js/router/ae-cancel-order-router.js"></script>
+	<script src="mainpage/order-cancel/ae-cancel-order/js/controller/ae-cancel-order-controller.js"></script>
+	<!-- cops cancel order -->
+  	<script src="mainpage/order-cancel/cops-cancel-order/js/service/cops-cancel-order-service.js"></script>
+	<script src="mainpage/order-cancel/cops-cancel-order/js/router/cops-cancel-order-router.js"></script>
+	<script src="mainpage/order-cancel/cops-cancel-order/js/controller/cops-cancel-order-controller.js"></script>
+	
+	<!-- master-data js start-->
+  <script src="mainpage/master-data/alert-setting/js/controller/alert-setting-controller.js"></script>	
+  <script src="mainpage/master-data/alert-setting/js/router/alert-setting-router.js"></script>
+  <script src="mainpage/master-data/alert-setting/js/service/alert-setting-service.js"></script>
+  
+  <script src="mainpage/master-data/buy-plan/js/controller/buy-plan-controller.js"></script>	
+  <script src="mainpage/master-data/buy-plan/js/router/buy-plan-router.js"></script>
+  <script src="mainpage/master-data/buy-plan/js/service/buy-plan-service.js"></script>
+  
+  <script src="mainpage/master-data/customer-list/js/controller/customer-list-controller.js"></script>	
+  <script src="mainpage/master-data/customer-list/js/router/customer-list-router.js"></script>
+  <script src="mainpage/master-data/customer-list/js/service/customer-list-service.js"></script>
+ 				
+  <script src="mainpage/master-data/door-master/js/controller/door-analysis-controller.js"></script>	
+  <script src="mainpage/master-data/door-master/js/router/door-analysis-router.js"></script>
+  <script src="mainpage/master-data/door-master/js/service/door-analysis-service.js"></script>
+  
+   <script src="mainpage/master-data/nike-buy/js/controller/nike-buy-controller.js"></script>	
+  <script src="mainpage/master-data/nike-buy/js/router/nike-buy-router.js"></script>
+  <script src="mainpage/master-data/nike-buy/js/service/nike-buy-service.js"></script>
+  
+  <script src="mainpage/master-data/product/js/controller/product-controller.js"></script>	
+  <script src="mainpage/master-data/product/js/router/product-router.js"></script>
+  <script src="mainpage/master-data/product/js/service/product-service.js"></script>
+  
+  <script src="mainpage/master-data/product-additional/js/controller/product-additional-controller.js"></script>	
+  <script src="mainpage/master-data/product-additional/js/router/product-additional-router.js"></script>
+  <script src="mainpage/master-data/product-additional/js/service/product-additional-service.js"></script>
+  
+  <script src="mainpage/master-data/qap/js/controller/qap-analysis-controller.js"></script>	
+  <script src="mainpage/master-data/qap/js/router/qap-analysis-router.js"></script>
+  <script src="mainpage/master-data/qap/js/service/qap-analysis-service.js"></script>
+  
+  <script src="mainpage/master-data/size-alert-set/js/controller/size-alert-set-controller.js"></script>	
+  <script src="mainpage/master-data/size-alert-set/js/router/size-alert-set-router.js"></script>
+  <script src="mainpage/master-data/size-alert-set/js/service/size-alert-set-service.js"></script>
+  
+  <script src="mainpage/master-data/size-master-import/js/controller/size-master-import-controller.js"></script>	
+  <script src="mainpage/master-data/size-master-import/js/router/size-master-import-router.js"></script>
+  <script src="mainpage/master-data/size-master-import/js/service/size-master-import-service.js"></script>
+  
+   <script src="mainpage/master-data/cops-parameter-setting/js/controller/cops-parameter-setting-controller.js"></script>	
+  <script src="mainpage/master-data/cops-parameter-setting/js/router/cops-parameter-setting-router.js"></script>
+  <script src="mainpage/master-data/cops-parameter-setting/js/service/cops-parameter-setting-service.js"></script>
+ <!-- master-data js end-->
+ 
+ <!-- order-change js start-->
+  <script src="mainpage/order-change/belle-change/js/controller/belle-change-controller.js"></script>	
+  <script src="mainpage/order-change/belle-change/js/router/belle-change-router.js"></script>
+  <script src="mainpage/order-change/belle-change/js/service/belle-change-service.js"></script>
+  
+  <script src="mainpage/order-change/buy-confirmation/sap-13570/js/controller/sap-13570-controller.js"></script>	
+  <script src="mainpage/order-change/buy-confirmation/sap-13570/js/router/sap-13570-router.js"></script>
+  <script src="mainpage/order-change/buy-confirmation/sap-13570/js/service/sap-13570-service.js"></script>
+  
+  <script src="mainpage/order-change/buy-confirmation/tera-data/js/controller/tera-data-controller.js"></script>	
+  <script src="mainpage/order-change/buy-confirmation/tera-data/js/router/tera-data-router.js"></script>
+  <script src="mainpage/order-change/buy-confirmation/tera-data/js/service/tera-data-service.js"></script>
+  
+  <script src="mainpage/order-change/door-mapping/ae-door-mapping/js/controller/ae-door-mapping-controller.js"></script>	
+  <script src="mainpage/order-change/door-mapping/ae-door-mapping/js/router/ae-door-mapping-router.js"></script>
+  <script src="mainpage/order-change/door-mapping/ae-door-mapping/js/service/ae-door-mapping-service.js"></script>
+  
+  <script src="mainpage/order-change/door-mapping/cops-door-mapping/js/controller/cops-door-mapping-controller.js"></script>	
+  <script src="mainpage/order-change/door-mapping/cops-door-mapping/js/router/cops-door-mapping-router.js"></script>
+  <script src="mainpage/order-change/door-mapping/cops-door-mapping/js/service/cops-door-mapping-service.js"></script>
+  
+  <script src="mainpage/order-change/nike-change/sap-13570/js/controller/sap-13570-controller.js"></script>	
+  <script src="mainpage/order-change/nike-change/sap-13570/js/router/sap-13570-router.js"></script>
+  <script src="mainpage/order-change/nike-change/sap-13570/js/service/sap-13570-service.js"></script>
+  
+  <script src="mainpage/order-change/nike-change/tera-data/js/controller/tera-data-controller.js"></script>	
+  <script src="mainpage/order-change/nike-change/tera-data/js/router/tera-data-router.js"></script>
+  <script src="mainpage/order-change/nike-change/tera-data/js/service/tera-data-service.js"></script>
+  <!-- order-change js end-->
+  
+  <!-- order-adjust-report start -->
+  <script src="mainpage/order-capture/order-adjust-report/js/controller/order-adjust-report-controller.js"></script>	
+  <script src="mainpage/order-capture/order-adjust-report/js/service/order-adjust-report-service.js"></script>
+  <script src="mainpage/order-capture/order-adjust-report/js/router/order-adjust-report-router.js"></script>
+  <!-- order-adjust-report end -->
+
+  <!-- PivotTable start -->
+  <script src="common/js/lib/jquery/jquery-ui.js"></script>
+  <script src="common/js/lib/pivot/pivot.min.js"></script>	
+  <link rel="stylesheet" href="common/js/lib/pivot/pivot.min.css"/>
+  <!-- PivotTable end -->
+  		
+</body>
+</html>

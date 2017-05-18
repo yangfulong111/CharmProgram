@@ -1,0 +1,289 @@
+@font-face { 
+font-family: NFUNCXBD;
+src:url('../../../common/fonts/NFUNCXBD.ttf');
+} 
+@font-face { 
+font-family: NFUNCXBI;
+src:url('../../../common/fonts/NFUNCXBI.ttf');
+} 
+@font-face { 
+font-family: TradeGothicforNike365-BdCn;
+src:url('../../../common/fonts/TradeGothicforNike365-BdCn.ttf');
+} 
+@font-face { 
+font-family: TradeGothicforNike365-Light;
+src:url('../../../common/fonts/TradeGothicforNike365-Light.ttf');
+} 
+@font-face { 
+font-family: TradeGothicforNike365-Roman;
+src:url('../../../common/fonts/TradeGothicforNike365-Roman.ttf');
+}
+@font-face { 
+font-family: TradeGothicforNike-BdCn;
+src:url('../../../common/fonts/TradeGothicforNike-BdCn.ttf');
+}
+@font-face { 
+font-family: TradeGothicforNike-BdCn;
+src:url('../../../common/fonts/TradeGothicforNike-BdCn.ttf');
+}
+
+.grid {
+  width: 100%;
+  height: 400px;
+}
+div label{
+	background:#BBBFC3;
+}
+
+#fileTable  th{
+	background-color:#07090B;
+	color:#FFFFFF;
+}
+
+#uploadFiles{
+	background:#EC7A00;
+	margin-left:46%;
+}
+
+body{
+	font-family: TradeGothicforNike365-BdCn, sans-serif;
+}
+.header{
+	padding:1em 0;
+	background:#07090B;
+}
+.logo{
+	float:left;
+}
+.logo h1{
+	text-transform:uppercase;
+	font-size:3em;
+	margin:0;
+}
+.logo h1 a{
+	color:#ec7a00;
+}
+.logo h1 a:hover{
+	text-decoration:none;
+}
+.header-top{
+	background:#313C4A;
+}  
+.header-nav{
+	float: left;
+}	   	
+.header-nav ul{
+	margin:0;
+	padding:0;
+}
+.header-nav ul li{
+	display:inline-block;  
+}
+.header-nav ul li a{
+	color:#fff;
+	text-decoration:none;
+	font-size:1.3em;
+	font-family: TradeGothicforNike365-BdCn, sans-serif; 
+	font-weight:700;
+	padding:1.3em 1.4em;
+	display:block;
+    text-transform:uppercase; 		  
+}	
+.header-nav ul li a:hover{
+	color:#454545;
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+}	
+
+.box{
+	float:right;
+	margin-top: 12px;
+}
+
+input[type="submit"] {
+	padding: 8px 30px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	background: #EC7A00;
+	font-size: 20px;
+	font-weight: 700;
+	font-family: TradeGothicforNike365-BdCn, sans-serif;
+	outline: none;
+	border: 3px solid #fff;	
+}	
+input[type="submit"]:hover{
+	background:#6A0292;
+	color:#ffffff;
+}
+
+
+.center{
+	margin-top:10%;
+}
+
+
+.footer{
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	bottom: 0;
+	margin-bottom: 0;
+	border-width: 1px 0 0;
+	background: #5B5752;
+	margin-top: 2em;
+}
+.footer-nav{
+	float: left;
+}	   	
+.footer-nav ul{
+	margin:0;
+	padding:0;
+}
+.footer-nav ul li{
+	display:inline-block;  
+}
+.footer-nav ul li a{
+	color:#fff;
+	text-decoration:none;
+	font-family: TradeGothicforNike365-BdCn, sans-serif; 
+	font-weight:700;
+	padding:1.8em 1.5em;
+	display:block;
+    text-transform:uppercase; 		  
+}	
+.footer-nav ul li a:hover{
+	color:#454545;
+}
+
+/*--responsive design--*/
+@media (max-width:1024px){
+
+.header-nav ul li a {
+	padding: 1.3em 1em;
+}
+
+
+/*--responsive design--*/
+@media (max-width:768px){
+.header-nav ul li{
+	display:block;
+	float:none;
+}
+.header-nav ul li a {
+	padding: 1em 16em;
+}
+.header-nav ul li a{
+	border-right:none;
+	border-bottom:1px solid #666;
+	background:#2d2d2d;
+}
+.header-nav ul{
+	display:none;
+}
+.header-nav span.menu{
+	display:block;
+	background:none;
+	margin-top: 1.3em;
+
+}
+.header-nav span.menu:before{
+	content:url(../images/menu.png)no-repeat 0px 0px;
+	color:#FFF;
+	font-size:1.3em;
+	text-transform:uppercase;
+	text-align:right;
+	cursor:pointer;
+}
+.header-nav{
+	background:none;
+}
+.box {
+	float: left;
+	margin-left: -10em;
+}
+
+/*--responsive design--*/
+@media (max-width:640px){
+.logo h1 a {
+	font-size: 0.7em;
+}
+.box {
+	margin-left: -3em;
+}
+
+.header-nav ul li a {
+	padding: 1em 17em;
+	font-size: 1em;
+}
+
+input[type="submit"] {
+	font-size: 18px;
+}
+
+.footer-nav ul li a {
+	padding: 1em 1em;
+}
+
+.header {
+	padding: 0em 0 1em;
+}
+
+/*--responsive design--*/
+@media (max-width:480px){
+.logo h1 a {
+	font-size: 0.6em;
+}
+.box {
+	margin-right: 3em;
+	float: right;
+}
+
+.header-nav ul li a {
+	padding: 1em 12em;
+	font-size: 1em;
+}
+
+input[type="submit"] {
+	font-size: 16px;
+	margin-top: 1em;
+}
+
+.header {
+	padding: 0em 0 1em;
+}
+
+/*--responsive design--*/
+@media (max-width:320px){
+.logo h1 a {
+	font-size: 0.5em;
+}
+
+.box {
+	float: right;
+	margin-right: 3em;
+	margin-top: 1.3em;
+}
+.header-nav ul li a {
+	padding: 1em 7em;
+}
+.header-nav ul li a {
+	font-size: 0.875em;
+}
+input[type="submit"] {
+	font-size: 13px;
+}
+.footer-nav ul li a {
+	padding: 1em 0.4em;
+	font-size:12px
+}
+.header-nav span.menu {
+	margin-top: 0.8em;
+}
+.header{
+	padding:0em 0 1em;
+}
+

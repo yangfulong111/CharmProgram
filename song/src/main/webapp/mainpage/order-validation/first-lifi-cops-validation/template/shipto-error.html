@@ -1,0 +1,60 @@
+<div ng-controler="FirstLifiCopsValidationController">
+		
+	<input type="text" class="input-medium search-query" ng-model="queryRequire" placeholder = 'Not required'>
+	<button type="submit" ng-click="queryErrorByPONO('Shipto')" class="btn btn-large">Search Door Master</button>
+	
+	<div ng-show="gridShow" ui-grid="gridOptions"  class="grid" ui-grid-pagination ui-grid-cellNav ui-grid-selection ui-grid-auto-resize></div>
+	
+	<table class="table table-bordered">
+		<thead style="background-color: #313C4A; color: white;">
+		  <tr>
+		    <th>PO_NO</th>
+		    <th>Shipto Original</th>
+		    <th>Shipto Proposed</th>
+		    <th>Soldto Original</th>
+		    <th>Soldto Proposed</th>
+		    <th>CLC Original</th>
+		    <th>CLC Proposed</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <td>PO_NO</td>
+		    <td>Shipto Original</td>
+		    <td>Shipto Proposed</td>
+		    <td>Soldto Original</td>
+		    <td>Soldto Proposed</td>
+		    <td>CLC Original</td>
+		    <td>CLC Proposed</td>
+		  </tr>
+		  <tr>
+		    <td>PO_NO</td>
+		    <td>Shipto Original</td>
+		    <td>Shipto Proposed</td>
+		    <td>Soldto Original</td>
+		    <td>Soldto Proposed</td>
+		    <td>CLC Original</td>
+		    <td>CLC Proposed</td>
+		  </tr>
+		  <tr>
+		    <td>PO_NO</td>
+		    <td>Shipto Original</td>
+		    <td>Shipto Proposed</td>
+		    <td>Soldto Original</td>
+		    <td>Soldto Proposed</td>
+		    <td>CLC Original</td>
+		    <td>CLC Proposed</td>
+		  </tr>
+		</tbody>
+	</table>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-8">
+			<button type="" class="btn btn-default">Adopt</button>
+			<button type="" ng-click="exportReport('Shipto')" class="btn btn-default">Export Report</button>
+			<button type="" ng-click= "skuError()" class="btn btn-default">Next Step</button>
+			<button type="" class="btn btn-default">Import</button>
+		</div>
+	</div>
+
+</div>

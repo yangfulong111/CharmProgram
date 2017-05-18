@@ -1,0 +1,50 @@
+<div ng-controler="FirstLifiCopsValidationController">
+		
+<form class="form-horizontal" role="form">
+	<h3>Validition Passed</h3>
+	<div class="form-group">
+		<label for="firstname" class="col-sm-2 control-label">Total PO Counts</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="firstname">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="lastname" class="col-sm-2 control-label">Total Confirm Order QTY</label>
+		<div class="col-sm-4">
+			<input type="text" ng-model="TotalConfirm" class="form-control" id="lastname">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="" class="btn btn-default">Re-validation</button>
+			<button type="" ng-click="exportReport('validationPassed')" class="btn btn-default">Export Report</button>
+			<button type="" class="btn btn-default">Send to SAP</button>
+		</div>
+	</div>
+	
+	<hr>
+	
+	<h3>Validation Failed</h3>
+	<div class="form-group">
+		<label for="firstname" class="col-sm-2 control-label">Total PO Counts</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="firstname">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="lastname" class="col-sm-2 control-label">Total Confirm Order QTY</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="lastname">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="" class="btn btn-default">Re-validation</button>
+			<button type="" ng-click="exportReport('validationFailed')" class="btn btn-default">Export Report</button>
+			<button type="" ng-click="shiptoError()" class="btn btn-default">Modification</button>
+		</div>
+	</div>
+</form>
+	
+
+</div>

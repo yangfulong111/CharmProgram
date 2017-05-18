@@ -1,0 +1,17 @@
+<div ng-controler="nikeBuyCtroller">
+	<div class="col-md-12 center">
+			<label for="file" class="btn btn-large" type="button" style = "margin-bottom:10px;">
+			<a ng-click="exportExcel()">生成nike buy</a>
+			</label> 
+			<p>
+<!-- 			<div ng-hide="sendToSFTP"> -->
+			<div >
+				<label for="file" class="btn btn-large" type="button" style = "margin-bottom:10px;">
+				<a ng-click="sendNikeBuyToSTP()">发送nike buy</a></label> 
+			</div>
+			 <div ng-hide="visibleMsg">
+				  <p><span style="color:red;" >{{mes}}</span></p>
+			</div>
+	</div>
+</div>
+

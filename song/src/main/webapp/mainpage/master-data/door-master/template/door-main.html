@@ -1,0 +1,49 @@
+<div ng-controler="doorAnalysisController">
+	<div class="col-md-12 center">
+		<div ng-show="errorMessages.length > 0">
+			<table class="table  table-hover table-bordered table-striped">
+				<thead>
+					<tr style="background-color:#AEADAD;">
+						<th>Number</th>
+						<th>Error Message</th>
+	
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="errorMessage in errorMessages">
+						<td>{{$index+1}}</td>
+						<td>{{errorMessage}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<label for="file" class="btn btn-large" type="button" style = "margin-bottom:10px;">Select File</label> 
+		<input type="file" id="file" style="display: none" file-upload multiple/><br/>
+		<div ng-show="files.length > 0">
+			<table id="fileTable" class="table  table-hover table-bordered table-striped">
+				<thead>
+					<tr style="background-color:#AEADAD;">
+						<th>Number</th>
+						<th>File Name</th>
+						<th>File Size</th>
+						<th>Operating</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="file in files">
+						<td>{{$index+1}}</td>
+						<td>{{file.name}}</td>
+						<td>{{file.size/1024/1024|number:2 }} MB</td>
+						<td><button class="btn btn-danger btn-xs" ng-click="removeFile(file)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<button id="uploadFiles" ng-click="uploadDoor()" class="btn btn-success">Upload Files</button>
+		</div>
+		<input type="text" class="input-medium search-query" ng-model="queryRequire" placeholder = 'Not required'>
+	  	<button type="submit" ng-click="queryAll()" class="btn btn-large">Search Door Master</button>
+	  	
+	  	<div style="margin: 50px;" ng-show="gridShow" ui-grid="gridOptions"  class="grid" ui-grid-pagination ui-grid-cellNav ui-grid-selection ui-grid-auto-resize></div>
+	</div>
+</div>
+
